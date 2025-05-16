@@ -4,6 +4,7 @@ import { RestaurantModule } from './restaurant/restaurant.module';
 import { DishModule } from './dish/dish.module';
 import { Restaurant } from './restaurant/restaurant.entity/restaurant.entity';
 import { Dish } from './dish/dish.entity/dish.entity';
+import { RestaurantDishModule } from './restaurant-dish/restaurant-dish.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { Dish } from './dish/dish.entity/dish.entity';
     }),
     RestaurantModule,
     DishModule,
+    RestaurantDishModule,
   ],
 })
 export class AppModule {}
