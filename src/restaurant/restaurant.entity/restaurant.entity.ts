@@ -1,5 +1,5 @@
+import { Dish } from 'src/dish/dish.entity/dish.entity';
 import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable } from 'typeorm';
-import { Dish } from '../restaurant.dto/dish.entity';
 
 @Entity()
 export class Restaurant {

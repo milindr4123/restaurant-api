@@ -3,7 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { RestaurantModule } from './restaurant/restaurant.module';
 import { DishModule } from './dish/dish.module';
 import { Restaurant } from './restaurant/restaurant.entity/restaurant.entity';
-import { Dish } from './restaurant/restaurant.dto/dish.entity';
+import { Dish } from './dish/dish.entity/dish.entity';
 
 @Module({
   imports: [
