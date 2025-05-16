@@ -1,4 +1,9 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
 
 @Controller('restaurant')
-export class RestaurantController {}
+export class RestaurantController {
+  @Get()
+  getHello() {
+    return { message: 'API funcionando 🎉' };
+  }
+}
