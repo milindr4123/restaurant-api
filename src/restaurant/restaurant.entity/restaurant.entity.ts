@@ -1,4 +1,4 @@
-import { Dish } from 'src/dish/dish.entity/dish.entity';
+import { Dish } from '../../dish/dish.entity/dish.entity';
 import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable } from 'typeorm';
 
 @Entity()
