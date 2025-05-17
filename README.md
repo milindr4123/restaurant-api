@@ -1,98 +1,159 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# 📦 Parcial Práctico – MISW4403 – Diseño y Construcción de APIs
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Este proyecto corresponde al **parcial práctico** de la materia **MISW4403 – Diseño y Construcción de APIs** de la Maestría en Ingeniería de Software – Universidad de los Andes.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Se implementa una API REST en **NestJS** para gestionar **restaurantes** y **platos**, así como la asociación entre ellos, cumpliendo el 100% de los requisitos del enunciado.
 
-## Description
+---
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## ✅ Requisitos oficiales del enunciado
 
-## Project setup
+### 🟩 1. Persistencia (6%)
+- Entidades `Restaurant` y `Dish` completas.
+- Relación `ManyToMany` entre ambas (`restaurant.dishes`, `dish.restaurants`).
 
-```bash
-$ npm install
-```
+### 🟩 2. Lógica de negocio (43%)
+- CRUD completo para `RestaurantService` y `DishService`.
+- Validaciones:
+  - `cuisine` válida (`Italiana`, `Japonesa`, etc.).
+  - `price` positivo.
+  - `category` válida (`entrada`, `plato fuerte`, etc.).
+- Asociación:
+  - `addDishToRestaurant`
+  - `findDishesFromRestaurant`
+  - `findDishFromRestaurant`
+  - `updateDishesFromRestaurant`
+  - `deleteDishFromRestaurant`
+- Manejo de errores con `NotFoundException`.
+- Pruebas unitarias funcionales mínimas.
 
-## Compile and run the project
+### 🟩 3. API REST (24%)
+- Controladores y rutas REST:
+  - `/restaurant`
+  - `/dish`
+  - `/restaurants/:restaurantId/dishes/:dishId`
 
-```bash
-# development
-$ npm run start
+### 🟩 4. Pruebas Postman (27%)
+- Colecciones:
+  - `restaurant.postman_collection.json`
+  - `dish.postman_collection.json`
+  - `restaurant-dish.postman_collection.json`
+- Casos válidos e inválidos cubiertos.
 
-# watch mode
-$ npm run start:dev
+### 🟩 5. Entrega final
+- Carpeta `collections/` incluida.
+- Release `v1.0.0` en GitHub.
+- Proyecto entregado como `.zip` en Coursera.
 
-# production mode
-$ npm run start:prod
-```
+---
 
-## Run tests
+## 🧰 Tecnologías utilizadas
 
-```bash
-# unit tests
-$ npm run test
+- [NestJS](https://nestjs.com/)
+- [TypeORM](https://typeorm.io/)
+- [SQLite](https://www.sqlite.org/)
+- [Postman](https://www.postman.com/)
+- [Jest](https://jestjs.io/)
 
-# e2e tests
-$ npm run test:e2e
+---
 
-# test coverage
-$ npm run test:cov
-```
+## 🚀 Cómo ejecutar el proyecto
 
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+### 1. Clonar el repositorio
 
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+git clone https://github.com/tu-usuario/restaurant-api.git
+cd restaurant-api
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+### 2. Instalar las dependencias
 
-## Resources
+```bash
+npm install
+```
 
-Check out a few resources that may come in handy when working with NestJS:
+### 3. Ejecutar el servidor en modo desarrollo
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+```bash
+npm run start:dev
+```
 
-## Support
+El servidor estará disponible en:  
+[http://localhost:3000](http://localhost:3000)
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+---
 
-## Stay in touch
+## 🧪 Cómo ejecutar los tests
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+### 1. Pruebas unitarias (Jest)
 
-## License
+Ejecuta todos los tests unitarios con:
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+```bash
+npm run test
+```
+
+Esto incluye pruebas funcionales para los servicios principales (`DishService`, `RestaurantDishService`, etc.).
+
+### 2. Pruebas de API (Postman)
+
+- Abre Postman.
+- Importa las colecciones desde la carpeta `collections/`.
+- Ejecuta los requests para probar todos los endpoints y casos válidos/inválidos.
+
+---
+
+## 📚 Ejemplos de uso de la API
+
+### Crear un restaurante
+
+```http
+POST /restaurant
+Content-Type: application/json
+
+{
+  "name": "La Pizzería",
+  "address": "Calle 123",
+  "cuisine": "Italiana",
+  "website": "https://lapizzeria.com"
+}
+```
+
+### Crear un plato
+
+```http
+POST /dish
+Content-Type: application/json
+
+{
+  "name": "Pizza Margarita",
+  "description": "Pizza clásica con tomate y albahaca",
+  "price": 25000,
+  "category": "plato fuerte"
+}
+```
+
+### Asociar un plato a un restaurante
+
+```http
+POST /restaurants/1/dishes/1
+```
+
+---
+
+## 📁 Estructura relevante del proyecto
+
+- `src/restaurant/` – Módulo de restaurantes
+- `src/dish/` – Módulo de platos
+- `src/restaurant-dish/` – Módulo de asociación restaurante-plato
+- `collections/` – Colecciones de Postman para pruebas
+
+---
+
+## 👤 Autor
+
+- **Nombre:** [Erika Margarita Forero Sossa]
+- **Correo:** [e.foreros@uniandes.edu.co]
+- **Materia:** MISW4403 – Diseño y Construcción de APIs
+
+
