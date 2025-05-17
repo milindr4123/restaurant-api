@@ -1,4 +1,4 @@
-import { Restaurant } from 'src/restaurant/restaurant.entity/restaurant.entity';
+import { Restaurant } from '../../restaurant/restaurant.entity/restaurant.entity';
 import { Entity, PrimaryGeneratedColumn, Column, ManyToMany } from 'typeorm';
 
 @Entity()
